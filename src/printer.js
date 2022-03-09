@@ -473,8 +473,6 @@ function renderLine(line, x, y, pdfKitDoc) {
 		var shiftToBaseline = lineHeight - ((inline.font.ascender / 1000) * inline.fontSize) - descent;
 
     var spaceLineheightDiff = (lineHeight*inline.fontSize) - inline.fontSize
-   
-    if(spaceLineheightDiff > 0) y+= (spaceLineheightDiff/2)
 
 		if (inline._pageNodeRef) {
 			preparePageNodeRefLine(inline._pageNodeRef, inline);
@@ -507,7 +505,7 @@ function renderLine(line, x, y, pdfKitDoc) {
 		pdfKitDoc._font = inline.font;
 		pdfKitDoc.fontSize(inline.fontSize);
 
-		var shiftedY = offsetText(y + shiftToBaseline, inline);
+		var shiftedY = offsetText(y + shiftToBaseline + (spaceLineheightDiff/2), inline);
 		pdfKitDoc.text(inline.text, x + inline.x, shiftedY, options);
 
 		if (inline.linkToPage) {
