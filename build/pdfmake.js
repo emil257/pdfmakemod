@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 93271:
+/***/ 23542:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 85443:
+/***/ 67320:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(85443);
+var FileSaver = __webpack_require__(67320);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(93271));
+var PdfKit = _interopDefault(__webpack_require__(23542));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -79105,7 +79105,7 @@ function measure(fontProvider, textArray, styleContextStack) {
 		var font = fontProvider.provideFont(fontName, bold, italics);
 
 		item.width = widthOfString(item.text, font, fontSize, characterSpacing, fontFeatures);
-		item.height = (fontSize < 14 ? 14 : fontSize) * lineHeight;
+		item.height = (fontSize < 13 ? 13 : fontSize) * lineHeight;
 
 		if (!item.leadingCut) {
 			item.leadingCut = 0;
