@@ -320,13 +320,13 @@ function measure(fontProvider, textArray, styleContextStack) {
 
 		if ((sup || sub) && item.fontSize === undefined) {
 			// font size reduction taken from here: https://en.wikipedia.org/wiki/Subscript_and_superscript#Desktop_publishing
-			fontSize *= 0.58
+			// fontSize *= 0.58
 		}
 
 		var font = fontProvider.provideFont(fontName, bold, italics);
 
 		item.width = widthOfString(item.text, font, fontSize, characterSpacing, fontFeatures);
-		item.height = (fontSize / 0.75) * lineHeight;
+		item.height = fontSize * lineHeight;
 
 		if (!item.leadingCut) {
 			item.leadingCut = 0;
