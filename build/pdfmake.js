@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 17373:
+/***/ 91440:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -41626,7 +41626,7 @@ if (isForced(NUMBER, !NativeNumber(' 0o1') || !NativeNumber('0b1') || NativeNumb
 
 /***/ }),
 
-/***/ 46362:
+/***/ 93299:
 /***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
 
 var $ = __webpack_require__(82109);
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 93299:
+/***/ 33919:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -56230,7 +56230,7 @@ __webpack_require__(43371);
 
 __webpack_require__(43290);
 
-__webpack_require__(46362);
+__webpack_require__(93299);
 
 __webpack_require__(8255);
 
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(93299);
+var FileSaver = __webpack_require__(33919);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(17373));
+var PdfKit = _interopDefault(__webpack_require__(91440));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -76723,6 +76723,10 @@ function renderLine(line, x, y, pdfKitDoc) {
 	for (var i = 0, l = line.inlines.length; i < l; i++) {
 		var inline = line.inlines[i];
 		var shiftToBaseline = lineHeight - ((inline.font.ascender / 1000) * inline.fontSize) - descent;
+
+    var spaceLineheightDiff = (lineHeight*inline.fontSize) - inline.fontSize
+   
+    if(spaceLineheightDiff > 0) y+= (spaceLineheightDiff/2)
 
 		if (inline._pageNodeRef) {
 			preparePageNodeRefLine(inline._pageNodeRef, inline);

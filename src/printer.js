@@ -472,6 +472,10 @@ function renderLine(line, x, y, pdfKitDoc) {
 		var inline = line.inlines[i];
 		var shiftToBaseline = lineHeight - ((inline.font.ascender / 1000) * inline.fontSize) - descent;
 
+    var spaceLineheightDiff = (lineHeight*inline.fontSize) - inline.fontSize
+   
+    if(spaceLineheightDiff > 0) y+= (spaceLineheightDiff/2)
+
 		if (inline._pageNodeRef) {
 			preparePageNodeRefLine(inline._pageNodeRef, inline);
 		}
