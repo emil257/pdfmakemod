@@ -326,7 +326,7 @@ function measure(fontProvider, textArray, styleContextStack) {
 		var font = fontProvider.provideFont(fontName, bold, italics);
 
 		item.width = widthOfString(item.text, font, fontSize, characterSpacing, fontFeatures);
-		item.height = fontSize * lineHeight * (1.5);
+		item.height = fontSize * lineHeight;
 
 		if (!item.leadingCut) {
 			item.leadingCut = 0;
