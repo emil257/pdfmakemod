@@ -474,8 +474,6 @@ function renderLine(line, x, y, pdfKitDoc) {
 
     var spaceLineheightDiff = inline.height - inline.fontSize
 
-    inline.height = inline.height + (spaceLineheightDiff / 2)
-
 		if (inline._pageNodeRef) {
 			preparePageNodeRefLine(inline._pageNodeRef, inline);
 		}
