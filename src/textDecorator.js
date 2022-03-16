@@ -60,21 +60,20 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		totalWidth = width(),
 		lineAscent = group.line.getAscenderHeight(),
 		ascent = biggerInline.font.ascender / 1000 * biggerInline.fontSize,
-		height = biggerInline.height,
+		height = biggerInline.height + ((biggerInline.height - biggerInline.fontSize) / 2),
 		descent = height - ascent;
-  
 
 	var lw = 0.5 + Math.floor(Math.max(biggerInline.fontSize - 8, 0) / 2) * 0.12;
 
 	switch (group.decoration) {
 		case 'underline':
-			y += ((lineAscent + descent * 0.45) + ((biggerInline.height - biggerInline.fontSize) / 2));
+			y += lineAscent + descent * 0.45;
 			break;
 		case 'overline':
-			y += ((lineAscent - (ascent * 0.85) + ((biggerInline.height - biggerInline.fontSize) / 2)));
+			y += lineAscent - (ascent * 0.85);
 			break;
 		case 'lineThrough':
-			y += ((lineAscent - (ascent * 0.25) + ((biggerInline.height - biggerInline.fontSize) / 2)));
+			y += lineAscent - (ascent * 0.25);
 			break;
 		default:
 			throw 'Unkown decoration : ' + group.decoration;
