@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 41741:
+/***/ 98671:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 62752:
+/***/ 5267:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(62752);
+var FileSaver = __webpack_require__(5267);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(41741));
+var PdfKit = _interopDefault(__webpack_require__(98671));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -76762,7 +76762,7 @@ function renderLine(line, x, y, pdfKitDoc) {
 
 		if (inline.linkToPage) {
 			var _ref = pdfKitDoc.ref({ Type: 'Action', S: 'GoTo', D: [inline.linkToPage, 0, 0] }).end();
-			pdfKitDoc.annotate(x + inline.x, (shiftedY + (spaceLineheightDiff/2)), inline.width, inline.height, {
+			pdfKitDoc.annotate(x + inline.x, shiftedY, inline.width, inline.height, {
 				Subtype: 'Link',
 				Dest: [inline.linkToPage - 1, 'XYZ', null, null, null]
 			});
@@ -76770,7 +76770,7 @@ function renderLine(line, x, y, pdfKitDoc) {
 
 	}
 	// Decorations won't draw correctly for superscript
-	textDecorator.drawDecorations(line, x, y, pdfKitDoc);
+	textDecorator.drawDecorations(line, x, shiftedY, pdfKitDoc);
 }
 
 function renderWatermark(page, pdfKitDoc) {
