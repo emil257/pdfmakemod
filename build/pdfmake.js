@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 98671:
+/***/ 26912:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 5267:
+/***/ 97529:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(5267);
+var FileSaver = __webpack_require__(97529);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(98671));
+var PdfKit = _interopDefault(__webpack_require__(26912));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -76726,6 +76726,8 @@ function renderLine(line, x, y, pdfKitDoc) {
 
     var spaceLineheightDiff = inline.height - inline.fontSize
 
+    inline.height = inline.height + (spaceLineheightDiff / 2)
+
 		if (inline._pageNodeRef) {
 			preparePageNodeRefLine(inline._pageNodeRef, inline);
 		}
@@ -76770,7 +76772,7 @@ function renderLine(line, x, y, pdfKitDoc) {
 
 	}
 	// Decorations won't draw correctly for superscript
-	textDecorator.drawDecorations(line, x, shiftedY, pdfKitDoc);
+	textDecorator.drawDecorations(line, x, y, pdfKitDoc);
 }
 
 function renderWatermark(page, pdfKitDoc) {
