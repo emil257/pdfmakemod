@@ -510,7 +510,7 @@ function renderLine(line, x, y, pdfKitDoc) {
 
 		if (inline.linkToPage) {
 			var _ref = pdfKitDoc.ref({ Type: 'Action', S: 'GoTo', D: [inline.linkToPage, 0, 0] }).end();
-			pdfKitDoc.annotate(x + inline.x, shiftedY, inline.width, inline.height, {
+			pdfKitDoc.annotate(x + inline.x, (shiftedY + (spaceLineheightDiff/2)), inline.width, inline.height, {
 				Subtype: 'Link',
 				Dest: [inline.linkToPage - 1, 'XYZ', null, null, null]
 			});
