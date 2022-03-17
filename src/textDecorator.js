@@ -61,14 +61,21 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		lineAscent = group.line.getAscenderHeight(),
 		ascent = biggerInline.font.ascender / 1000 * biggerInline.fontSize,
 		height = biggerInline.height,
-		descent = height - ascent,
-    spaceLineheightDiff = biggerInline.height - biggerInline.fontSize;
+		descent = height - ascent;
+
+    // console.log('----------------')
+    // console.log('decent; ' , descent)
+    // console.log('ascent; ' , ascent)
+    // console.log('lineAscent; ' , lineAscent)
+    // console.log('fontSize; ' , biggerInline.fontSize)
+    // console.log('height; ' , height)
+    // console.log('----------------')
 
 	var lw = 0.5 + Math.floor(Math.max(biggerInline.fontSize - 8, 0) / 2) * 0.12;
 
 	switch (group.decoration) {
 		case 'underline':
-			y += lineAscent + descent * 0.45;
+			y += lineAscent + (descent * 0.50) + .5;
 			break;
 		case 'overline':
 			y += lineAscent - (ascent * 0.85);
@@ -119,7 +126,7 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		pdfKitDoc.stroke(group.decorationColor);
 	} else {
 		pdfKitDoc.fillColor(group.decorationColor)
-			.rect(x + firstInline.x, ((y - lw / 2) + (spaceLineheightDiff / 2)), totalWidth, lw)
+			.rect(x + firstInline.x, (y - lw / 2), totalWidth, lw)
 			.fill();
 	}
 	pdfKitDoc.restore();
