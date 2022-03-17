@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 32356:
+/***/ 87665:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 1245:
+/***/ 8023:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(1245);
+var FileSaver = __webpack_require__(8023);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(32356));
+var PdfKit = _interopDefault(__webpack_require__(87665));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -76724,7 +76724,17 @@ function renderLine(line, x, y, pdfKitDoc) {
 		var inline = line.inlines[i];
 		var shiftToBaseline = lineHeight - ((inline.font.ascender / 1000) * inline.fontSize) - descent;
 
-    var spaceLineheightDiff = inline.height - inline.fontSize
+    // console.log('#######################')
+    // console.log('shiftToBaseline;;;', shiftToBaseline)
+    // console.log('lineHeight;;;', shiftToBaseline)
+    // console.log('((inline.font.ascender / 1000) * inline.fontSize);;;', shiftToBaseline)
+    // console.log('descent', descent)
+    // console.log('lineHeight', lineHeight)
+    // console.log('ascenderHeight', ascenderHeight)
+
+    var spaceLineheightDiff = inline.height - ascenderHeight
+
+    // console.log('spaceLineheightDiff', spaceLineheightDiff)
 
 		if (inline._pageNodeRef) {
 			preparePageNodeRefLine(inline._pageNodeRef, inline);
