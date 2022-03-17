@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 85616:
+/***/ 32356:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 80863:
+/***/ 1245:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(80863);
+var FileSaver = __webpack_require__(1245);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(85616));
+var PdfKit = _interopDefault(__webpack_require__(32356));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -78685,7 +78685,8 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 
     // console.log('----------------')
     // console.log('decent; ' , descent)
-    // console.log('ascent; ' , ascent)
+    // console.log('ascent; ' , biggerInline.font.ascender)
+    // console.log('ascent2; ' , ascent)
     // console.log('lineAscent; ' , lineAscent)
     // console.log('fontSize; ' , biggerInline.fontSize)
     // console.log('height; ' , height)
@@ -78695,7 +78696,7 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 
 	switch (group.decoration) {
 		case 'underline':
-			y += lineAscent + (descent * 0.50) + .5;
+			y += lineAscent + (descent * 0.50) + lw;
 			break;
 		case 'overline':
 			y += lineAscent - (ascent * 0.85);
@@ -78745,6 +78746,10 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		}
 		pdfKitDoc.stroke(group.decorationColor);
 	} else {
+    // console.log((y - lw / 2))
+    // console.log('Y:',(y))
+    // console.log('lw:', lw)
+    // console.log('lw / 2:', (lw / 2))
 		pdfKitDoc.fillColor(group.decorationColor)
 			.rect(x + firstInline.x, (y - lw / 2), totalWidth, lw)
 			.fill();
