@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 78221:
+/***/ 65183:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 43173:
+/***/ 16168:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(43173);
+var FileSaver = __webpack_require__(16168);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(78221));
+var PdfKit = _interopDefault(__webpack_require__(65183));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -78681,7 +78681,8 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		lineAscent = group.line.getAscenderHeight(),
 		ascent = biggerInline.font.ascender / 1000 * biggerInline.fontSize,
 		height = biggerInline.height,
-		descent = height - ascent;
+		descent = height - ascent,
+    spaceLineheightDiff = biggerInline.height - biggerInline.fontSize;
 
 	var lw = 0.5 + Math.floor(Math.max(biggerInline.fontSize - 8, 0) / 2) * 0.12;
 
@@ -78738,7 +78739,7 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		pdfKitDoc.stroke(group.decorationColor);
 	} else {
 		pdfKitDoc.fillColor(group.decorationColor)
-			.rect(x + firstInline.x, ((y - lw / 2) + 10), totalWidth, lw)
+			.rect(x + firstInline.x, ((y - lw / 2) + (spaceLineheightDiff / 2)), totalWidth, lw)
 			.fill();
 	}
 	pdfKitDoc.restore();

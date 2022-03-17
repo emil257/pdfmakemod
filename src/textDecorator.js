@@ -61,7 +61,8 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		lineAscent = group.line.getAscenderHeight(),
 		ascent = biggerInline.font.ascender / 1000 * biggerInline.fontSize,
 		height = biggerInline.height,
-		descent = height - ascent;
+		descent = height - ascent,
+    spaceLineheightDiff = biggerInline.height - biggerInline.fontSize;
 
 	var lw = 0.5 + Math.floor(Math.max(biggerInline.fontSize - 8, 0) / 2) * 0.12;
 
@@ -118,7 +119,7 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		pdfKitDoc.stroke(group.decorationColor);
 	} else {
 		pdfKitDoc.fillColor(group.decorationColor)
-			.rect(x + firstInline.x, ((y - lw / 2) + 10), totalWidth, lw)
+			.rect(x + firstInline.x, ((y - lw / 2) + (spaceLineheightDiff / 2)), totalWidth, lw)
 			.fill();
 	}
 	pdfKitDoc.restore();
