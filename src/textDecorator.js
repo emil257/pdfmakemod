@@ -63,15 +63,6 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		height = biggerInline.height,
 		descent = height - ascent;
 
-    // console.log('----------------')
-    // console.log('decent; ' , descent)
-    // console.log('ascent; ' , biggerInline.font.ascender)
-    // console.log('ascent2; ' , ascent)
-    // console.log('lineAscent; ' , lineAscent)
-    // console.log('fontSize; ' , biggerInline.fontSize)
-    // console.log('height; ' , height)
-    // console.log('----------------')
-
 	var lw = 0.5 + Math.floor(Math.max(biggerInline.fontSize - 8, 0) / 2) * 0.12;
 
 	switch (group.decoration) {
@@ -126,10 +117,6 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		}
 		pdfKitDoc.stroke(group.decorationColor);
 	} else {
-    // console.log((y - lw / 2))
-    // console.log('Y:',(y))
-    // console.log('lw:', lw)
-    // console.log('lw / 2:', (lw / 2))
 		pdfKitDoc.fillColor(group.decorationColor)
 			.rect(x + firstInline.x, (y - lw / 2), totalWidth, lw)
 			.fill();
