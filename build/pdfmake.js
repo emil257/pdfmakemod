@@ -14382,7 +14382,7 @@ module.exports = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 15823:
+/***/ 78221:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55466,7 +55466,7 @@ module.exports = __webpack_require__(17187).EventEmitter;
 
 /***/ }),
 
-/***/ 39572:
+/***/ 43173:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(a,b){if(true)!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (b),
@@ -72611,7 +72611,7 @@ module.exports = URLBrowserResolver;
 var isFunction = (__webpack_require__(6225).isFunction);
 var isUndefined = (__webpack_require__(6225).isUndefined);
 var isNull = (__webpack_require__(6225).isNull);
-var FileSaver = __webpack_require__(39572);
+var FileSaver = __webpack_require__(43173);
 var saveAs = FileSaver.saveAs;
 
 var defaultClientFonts = {
@@ -76227,7 +76227,7 @@ function _interopDefault(ex) {
 	return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex;
 }
 
-var PdfKit = _interopDefault(__webpack_require__(15823));
+var PdfKit = _interopDefault(__webpack_require__(78221));
 
 function getEngineInstance() {
 	return PdfKit;
@@ -78686,15 +78686,15 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 	var lw = 0.5 + Math.floor(Math.max(biggerInline.fontSize - 8, 0) / 2) * 0.12;
 
 	switch (group.decoration) {
-		// case 'underline':
-		// 	y += lineAscent + descent * 0.45;
-		// 	break;
-		// case 'overline':
-		// 	y += lineAscent - (ascent * 0.85);
-		// 	break;
-		// case 'lineThrough':
-		// 	y += lineAscent - (ascent * 0.25);
-		// 	break;
+		case 'underline':
+			y += lineAscent + descent * 0.45;
+			break;
+		case 'overline':
+			y += lineAscent - (ascent * 0.85);
+			break;
+		case 'lineThrough':
+			y += lineAscent - (ascent * 0.25);
+			break;
 		default:
 			throw 'Unkown decoration : ' + group.decoration;
 	}
@@ -78738,7 +78738,7 @@ function drawDecoration(group, x, y, pdfKitDoc) {
 		pdfKitDoc.stroke(group.decorationColor);
 	} else {
 		pdfKitDoc.fillColor(group.decorationColor)
-			.rect(x + firstInline.x, y - lw / 2, totalWidth, lw)
+			.rect(x + firstInline.x, ((y - lw / 2) + 10), totalWidth, lw)
 			.fill();
 	}
 	pdfKitDoc.restore();
